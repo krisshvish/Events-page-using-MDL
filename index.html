@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Events</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Material IO CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+    <!-- Page styles & Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.google.com/?selection.family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+
+    <!--Favicon icon for title-->
+    <link rel="icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700" rel="stylesheet">
+    <link rel="icon" sizes="192x192" href="#">
+    <link rel="icon" sizes="128x128" href="#">
+
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+
+    <!-- Square card -->
+    <style>
+    .demo-card-square.mdl-card {
+      width: 230px;
+      height: 320px;
+      padding: 0px;
+      margin: 10px;
+      border-radius: 20px;
+    }
+    .demo-card-square > .mdl-card__title {
+      color: white;
+      font-family: "Montserrat";
+      background:
+        url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+    }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+            <a href="../../index-2.html"><img class="android-logo-image" src="images/aura.png"></a>
+          </span>
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Events">Events</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Music"><i class="material-icons">music_note</i>Music</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Dance"><i class="material-icons">blur_circular</i>Dance</a>
+              <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Fashion">Fashion&Design</a> -->
+              <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Sports">Sports</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Dramatics">Drama</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Informal">Informal</a> -->
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Technical"><i class="material-icons">laptop</i>Technical</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#Painting"><i class="material-icons">palette</i>Painting</a>
+            </nav>
+          </div>
+          <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+            <!-- <li class="mdl-menu__item"><a href="#Events">Dance</a></li> -->
+            <li class="mdl-menu__item"><a href="#Dramatics">Drama</a></li>
+            <li class="mdl-menu__item"><a href="#Fashion">Fashion&Design</a></li>
+            <li class="mdl-menu__item"><a href="#Informal">Informal</a></li>
+            <!-- <li class="mdl-menu__item"><a href="#Music"></a></li> -->
+            <!-- <li class="mdl-menu__item"><a href="#Painting">Painting</a></li> -->
+            <li class="mdl-menu__item"><a href="#Sports">Sports</a></li>
+            <!-- <li class="mdl-menu__item"><a href="#Technical">Technical</a></li> -->
+
+          </ul>
+
+          <span class="android-mobile-title mdl-layout-title">
+            <img class="android-logo-image" src="images/android-logo.png">
+          </span>
+        </div>
+      </div>
+
+      <div class="android-content mdl-layout__content">
+        <div class="android-be-together-section mdl-typography--text-center">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+            </ol>
+
+            <div class="carousel-inner" style="overflow: hidden;">
+              <div class="carousel-item active" style="overflow: hidden;">
+                <img class="d-block w-100" src="images/511222.jpg" alt="First slide" style="top: 0;
+                left: 0;
+                min-width: 100%;
+                height: 720px;
+                max-width: none;">
+              </div>
+              <div class="carousel-item" style="overflow: hidden;">
+                <img class="d-block w-100" src="images/pheo.png" alt="Second slide" style="top: 0;
+                left: 0;
+                min-width: 100%;
+                height: 720px;
+                max-width: none;">
+              </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <br><br><br><br><br><br><br><br> <br> <br>
+        </div>
+
+        <div class="android-more-section">
+          <section id="Events">
+            <div class="android-section-title mdl-typography--display-1-color-contrast">Events</div>
+          </section>
+
+          <!-- Music Events -->
+          <section id="Music">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Music Events</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/BattleOfBands.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="color:black; font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Battle of Bands
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="bbbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="bbdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/BattleOfBands.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var bbDialog = document.querySelector("#bbdialog");
+                      var bbShowModalButton = document.querySelector("#bbbutt");
+                      if (! bbDialog.showModal) {
+                        dialogPolyfill.registerDialog(bbDialog);
+                      }
+                      bbShowModalButton.addEventListener('click', function() {
+                        bbDialog.showModal();
+                      });
+                      bbDialog.querySelector('.close').addEventListener('click', function() {
+                        bbDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/ClassicalMusic.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Classical Music
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="cmbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="cmdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/ClassicalMusic.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var cmDialog = document.querySelector("#cmdialog");
+                      var cmShowModalButton = document.querySelector("#cmbutt");
+                      if (! cmDialog.showModal) {
+                        dialogPolyfill.registerDialog(cmDialog);
+                      }
+                      cmShowModalButton.addEventListener('click', function() {
+                        cmDialog.showModal();
+                      });
+                      cmDialog.querySelector('.close').addEventListener('click', function() {
+                        cmDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/GroupSinging.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Group Singing
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="gsbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="gsdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/GroupSinging.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var gsDialog = document.querySelector("#gsdialog");
+                      var gsShowModalButton = document.querySelector("#gsbutt");
+                      if (! gsDialog.showModal) {
+                        dialogPolyfill.registerDialog(gsDialog);
+                      }
+                      gsShowModalButton.addEventListener('click', function() {
+                        gsDialog.showModal();
+                      });
+                      gsDialog.querySelector('.close').addEventListener('click', function() {
+                        gsDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/InstrumentalMusic.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Instrumental Music
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="imbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="imdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/InstrumentalMusic.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var imDialog = document.querySelector("#imdialog");
+                      var imShowModalButton = document.querySelector("#imbutt");
+                      if (! imDialog.showModal) {
+                        dialogPolyfill.registerDialog(imDialog);
+                      }
+                      imShowModalButton.addEventListener('click', function() {
+                        imDialog.showModal();
+                      });
+                      imDialog.querySelector('.close').addEventListener('click', function() {
+                        imDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/SoloSinging.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Solo Singing
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="ssbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="ssdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/SoloSinging.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var ssDialog = document.querySelector("#ssdialog");
+                      var ssShowModalButton = document.querySelector("#ssbutt");
+                      if (! ssDialog.showModal) {
+                        dialogPolyfill.registerDialog(ssDialog);
+                      }
+                      ssShowModalButton.addEventListener('click', function() {
+                        ssDialog.showModal();
+                      });
+                      ssDialog.querySelector('.close').addEventListener('click', function() {
+                        ssDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <br><br><br>
+            </div>
+          </section>
+
+          <br><br><br>
+
+          <!-- Dance Events -->
+          <section id="Dance">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Dance Events</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/GroupDance.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Group Dance
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="gdbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="gddialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/GroupDance.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var gdDialog = document.querySelector("#gddialog");
+                      var gdShowModalButton = document.querySelector("#gdbutt");
+                      if (! gdDialog.showModal) {
+                        dialogPolyfill.registerDialog(gdDialog);
+                      }
+                      gdShowModalButton.addEventListener('click', function() {
+                        gdDialog.showModal();
+                      });
+                      gdDialog.querySelector('.close').addEventListener('click', function() {
+                        gdDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/SoloDance.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="color:black; font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Solo Dance
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="sdbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="sddialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/SoloDance.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var sdDialog = document.querySelector("#sddialog");
+                      var sdShowModalButton = document.querySelector("#sdbutt");
+                      if (! sdDialog.showModal) {
+                        dialogPolyfill.registerDialog(sdDialog);
+                      }
+                      sdShowModalButton.addEventListener('click', function() {
+                        sdDialog.showModal();
+                      });
+                      sdDialog.querySelector('.close').addEventListener('click', function() {
+                        sdDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <br><br><br>
+            </div>
+          </section>
+
+          <br><br><br>
+
+          <!-- Fashion Events -->
+          <section id="Fashion">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Fashion Events</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/CADDesigning.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    CAD Design
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="cadbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="caddialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/CADDesigning.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var cadDialog = document.querySelector("#caddialog");
+                      var cadShowModalButton = document.querySelector("#cadbutt");
+                      if (! cadDialog.showModal) {
+                        dialogPolyfill.registerDialog(cadDialog);
+                      }
+                      cadShowModalButton.addEventListener('click', function() {
+                        cadDialog.showModal();
+                      });
+                      cadDialog.querySelector('.close').addEventListener('click', function() {
+                        cadDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/DressDesigning.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Dress Designing
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="dressbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="dressdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/DressDesigning.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var dressDialog = document.querySelector("#dressdialog");
+                      var dressShowModalButton = document.querySelector("#dressbutt");
+                      if (! dressDialog.showModal) {
+                        dialogPolyfill.registerDialog(dressDialog);
+                      }
+                      dressShowModalButton.addEventListener('click', function() {
+                        dressDialog.showModal();
+                      });
+                      dressDialog.querySelector('.close').addEventListener('click', function() {
+                        dressDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/FashionParade.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Fashion Parade
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="fashbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="fashdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/FashionParade.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var fashDialog = document.querySelector("#fashdialog");
+                      var fashShowModalButton = document.querySelector("#fashbutt");
+                      if (! fashDialog.showModal) {
+                        dialogPolyfill.registerDialog(fashDialog);
+                      }
+                      fashShowModalButton.addEventListener('click', function() {
+                        fashDialog.showModal();
+                      });
+                      fashDialog.querySelector('.close').addEventListener('click', function() {
+                        fashDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+              <br><br><br>
+            </div>
+          </section>
+
+          <br><br><br>
+
+          <!-- Sports Events -->
+          <section id="Sports">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Sports</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/DunkIt.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="color:black; font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Dunk-it
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="dunkbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="dunkdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/DunkIt.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var dunkDialog = document.querySelector("#dunkdialog");
+                      var dunkShowModalButton = document.querySelector("#dunkbutt");
+                      if (! dunkDialog.showModal) {
+                        dialogPolyfill.registerDialog(dunkDialog);
+                      }
+                      dunkShowModalButton.addEventListener('click', function() {
+                        dunkDialog.showModal();
+                      });
+                      dunkDialog.querySelector('.close').addEventListener('click', function() {
+                        dunkDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/Football.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Football
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="footbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="footdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/Football.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var footDialog = document.querySelector("#footdialog");
+                      var footShowModalButton = document.querySelector("#footbutt");
+                      if (! footDialog.showModal) {
+                        dialogPolyfill.registerDialog(footDialog);
+                      }
+                      footShowModalButton.addEventListener('click', function() {
+                        footDialog.showModal();
+                      });
+                      footDialog.querySelector('.close').addEventListener('click', function() {
+                        footDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+              <br><br><br>
+            </div>
+          </section>
+
+          <br><br><br>
+
+          <!-- Drama Events -->
+          <section id="Dramatics">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Dramatics Events</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/Mime.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Mime
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="mimebutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="mimedialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/Mime.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var mimeDialog = document.querySelector("#mimedialog");
+                      var mimeShowModalButton = document.querySelector("#mimebutt");
+                      if (! mimeDialog.showModal) {
+                        dialogPolyfill.registerDialog(mimeDialog);
+                      }
+                      mimeShowModalButton.addEventListener('click', function() {
+                        mimeDialog.showModal();
+                      });
+                      mimeDialog.querySelector('.close').addEventListener('click', function() {
+                        mimeDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/Natak.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Natak
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="natakbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="natakdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/Natak.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var natakDialog = document.querySelector("#natakdialog");
+                      var natakShowModalButton = document.querySelector("#natakbutt");
+                      if (! natakDialog.showModal) {
+                        dialogPolyfill.registerDialog(natakDialog);
+                      }
+                      natakShowModalButton.addEventListener('click', function() {
+                        natakDialog.showModal();
+                      });
+                      natakDialog.querySelector('.close').addEventListener('click', function() {
+                        natakDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/StreetPlay.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Street Play
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="playbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="playdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/StreetPlay.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var playDialog = document.querySelector("#playdialog");
+                      var playShowModalButton = document.querySelector("#playbutt");
+                      if (! playDialog.showModal) {
+                        dialogPolyfill.registerDialog(playDialog);
+                      }
+                      playShowModalButton.addEventListener('click', function() {
+                        playDialog.showModal();
+                      });
+                      playDialog.querySelector('.close').addEventListener('click', function() {
+                        playDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+              <br><br><br>
+            </div>
+          </section>
+
+          <br><br><br>
+
+          <!-- Informal Events -->
+          <section id="Informal">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Informal Events</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/AutomobileSketching.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Automobile Sketching
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="autobutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="autodialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/AutomobileSketching.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var autoDialog = document.querySelector("#autodialog");
+                      var autoShowModalButton = document.querySelector("#autobutt");
+                      if (! autoDialog.showModal) {
+                        dialogPolyfill.registerDialog(autoDialog);
+                      }
+                      autoShowModalButton.addEventListener('click', function() {
+                        autoDialog.showModal();
+                      });
+                      autoDialog.querySelector('.close').addEventListener('click', function() {
+                        autoDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/LANGaming.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    LAN Gaming
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="lanbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="landialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/LANGaming.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var lanDialog = document.querySelector("#landialog");
+                      var lanShowModalButton = document.querySelector("#lanbutt");
+                      if (! lanDialog.showModal) {
+                        dialogPolyfill.registerDialog(lanDialog);
+                      }
+                      lanShowModalButton.addEventListener('click', function() {
+                        lanDialog.showModal();
+                      });
+                      lanDialog.querySelector('.close').addEventListener('click', function() {
+                        lanDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/PencilSketching.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="color:black; font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Pencil Sketching
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="penbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="pendialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/PencilSketching.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var penDialog = document.querySelector("#pendialog");
+                      var penShowModalButton = document.querySelector("#penbutt");
+                      if (! penDialog.showModal) {
+                        dialogPolyfill.registerDialog(penDialog);
+                      }
+                      penShowModalButton.addEventListener('click', function() {
+                        penDialog.showModal();
+                      });
+                      penDialog.querySelector('.close').addEventListener('click', function() {
+                        penDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/Photography.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Photography
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  </a>
+                  <div style="float: left;"><button id="photobutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="photodialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/Photography.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var photoDialog = document.querySelector("#photodialog");
+                      var photoShowModalButton = document.querySelector("#photobutt");
+                      if (! photoDialog.showModal) {
+                        dialogPolyfill.registerDialog(photoDialog);
+                      }
+                      photoShowModalButton.addEventListener('click', function() {
+                        photoDialog.showModal();
+                      });
+                      photoDialog.querySelector('.close').addEventListener('click', function() {
+                        photoDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/Dubsmash.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="color:black;font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Dubsmash
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="dubbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="dubdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/Dubsmash.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var dubDialog = document.querySelector("#dubdialog");
+                      var dubShowModalButton = document.querySelector("#dubbutt");
+                      if (! dubDialog.showModal) {
+                        dialogPolyfill.registerDialog(dubDialog);
+                      }
+                      dubShowModalButton.addEventListener('click', function() {
+                        dubDialog.showModal();
+                      });
+                      dubDialog.querySelector('.close').addEventListener('click', function() {
+                        dubDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <br><br><br>
+            </div>
+          </section>
+
+          <br><br><br>
+
+          <!-- Technical Events -->
+          <section id="Technical">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Technical Events</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/BlindCodingf.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Blind Coding
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="blindbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="blinddialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/BlindCodingf.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var blindDialog = document.querySelector("#blinddialog");
+                      var blindShowModalButton = document.querySelector("#blindbutt");
+                      if (! blindDialog.showModal) {
+                        dialogPolyfill.registerDialog(blindDialog);
+                      }
+                      blindShowModalButton.addEventListener('click', function() {
+                        blindDialog.showModal();
+                      });
+                      blindDialog.querySelector('.close').addEventListener('click', function() {
+                        blindDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/CProgramming.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    C Programming
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="cprogbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="cprogdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/CProgramming.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var cprogDialog = document.querySelector("#cprogdialog");
+                      var cprogShowModalButton = document.querySelector("#cprogbutt");
+                      if (! cprogDialog.showModal) {
+                        dialogPolyfill.registerDialog(cprogDialog);
+                      }
+                      cprogShowModalButton.addEventListener('click', function() {
+                        cprogDialog.showModal();
+                      });
+                      cprogDialog.querySelector('.close').addEventListener('click', function() {
+                        cprogDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/JavaProgramming.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    JAVA Programming
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="javabutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="javadialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/JavaProgramming.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var javaDialog = document.querySelector("#javadialog");
+                      var javaShowModalButton = document.querySelector("#javabutt");
+                      if (! javaDialog.showModal) {
+                        dialogPolyfill.registerDialog(javaDialog);
+                      }
+                      javaShowModalButton.addEventListener('click', function() {
+                        javaDialog.showModal();
+                      });
+                      javaDialog.querySelector('.close').addEventListener('click', function() {
+                        javaDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/CircuitDebugging.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Circuit Debugging
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="circbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="circdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/CircuitDebugging.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var circDialog = document.querySelector("#circdialog");
+                      var circShowModalButton = document.querySelector("#circbutt");
+                      if (! circDialog.showModal) {
+                        dialogPolyfill.registerDialog(circDialog);
+                      }
+                      circShowModalButton.addEventListener('click', function() {
+                        circDialog.showModal();
+                      });
+                      circDialog.querySelector('.close').addEventListener('click', function() {
+                        circDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/CodeDebugging.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Code Debugging
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="codebutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="codedialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/CodeDebugging.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var codeDialog = document.querySelector("#codedialog");
+                      var codeShowModalButton = document.querySelector("#codebutt");
+                      if (! codeDialog.showModal) {
+                        dialogPolyfill.registerDialog(codeDialog);
+                      }
+                      codeShowModalButton.addEventListener('click', function() {
+                        codeDialog.showModal();
+                      });
+                      codeDialog.querySelector('.close').addEventListener('click', function() {
+                        codeDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/GeneralQuiz.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    General Quiz
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="quizbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="quizdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/GeneralQuiz.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var quizDialog = document.querySelector("#quizdialog");
+                      var quizShowModalButton = document.querySelector("#quizbutt");
+                      if (! quizDialog.showModal) {
+                        dialogPolyfill.registerDialog(quizDialog);
+                      }
+                      quizShowModalButton.addEventListener('click', function() {
+                        quizDialog.showModal();
+                      });
+                      quizDialog.querySelector('.close').addEventListener('click', function() {
+                        quizDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/RoboRace.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Robo Race
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="racebutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="racedialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/RoboRace.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var raceDialog = document.querySelector("#racedialog");
+                      var raceShowModalButton = document.querySelector("#racebutt");
+                      if (! raceDialog.showModal) {
+                        dialogPolyfill.registerDialog(raceDialog);
+                      }
+                      raceShowModalButton.addEventListener('click', function() {
+                        raceDialog.showModal();
+                      });
+                      raceDialog.querySelector('.close').addEventListener('click', function() {
+                        raceDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/RoboSoccer.png');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Robo Soccer
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="socbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="socdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/RoboSoccer.png" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var socDialog = document.querySelector("#socdialog");
+                      var socShowModalButton = document.querySelector("#socbutt");
+                      if (! socDialog.showModal) {
+                        dialogPolyfill.registerDialog(socDialog);
+                      }
+                      socShowModalButton.addEventListener('click', function() {
+                        socDialog.showModal();
+                      });
+                      socDialog.querySelector('.close').addEventListener('click', function() {
+                        socDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/RoboWar.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Robo Wars
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="warbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="wardialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/RoboWar.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var warDialog = document.querySelector("#wardialog");
+                      var warShowModalButton = document.querySelector("#warbutt");
+                      if (! warDialog.showModal) {
+                        dialogPolyfill.registerDialog(warDialog);
+                      }
+                      warShowModalButton.addEventListener('click', function() {
+                        warDialog.showModal();
+                      });
+                      warDialog.querySelector('.close').addEventListener('click', function() {
+                        warDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <br><br><br>
+            </div>
+          </section>
+
+          <!-- Painting Events -->
+          <section id="Painting">
+            <br>
+            <hr>
+            <div class="android-section-title mdl-typography--display-1-color-contrast" style="font-family: 'Lobster', cursive;
+            text-align: center; padding-bottom: 0px;">Painting Events</div>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto);">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/ArtPaiting.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Art
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="apbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="apdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/ArtPaiting.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var apDialog = document.querySelector("#apdialog");
+                      var apShowModalButton = document.querySelector("#apbutt");
+                      if (! apDialog.showModal) {
+                        dialogPolyfill.registerDialog(apDialog);
+                      }
+                      apShowModalButton.addEventListener('click', function() {
+                        apDialog.showModal();
+                      });
+                      apDialog.querySelector('.close').addEventListener('click', function() {
+                        apDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand" style="background: url('images/EventImages/FacePainting.jpg');
+                background-size: cover; background-repeat: no-repeat;">
+                  <h2 class="mdl-card__title-text" style="font-family: Montserrat;"></h2>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    Face Painting
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                  <div style="float: left;"><button id="fpbutt" type="button" class="mdl-button mdl-js-button mdl-button--primary show-modal">
+                    More Info</button></div>
+
+                  <dialog id="fpdialog" class="mdl-dialog" style="border-radius: 10px; width: 500px;">
+                    <div class="mdl-dialog__content" style="padding : 0px;">
+
+                      <br>
+
+                      <div style="padding: 20px;">
+                        <img src="images/EventImages/FacePainting.jpg" style="width: 400px; height: 250px; object-fit: contain;" alt="">
+                      </div>
+                      <br>
+                      <p style="padding : 20px;">
+                      </p>
+                    </div>
+
+                    <div class="mdl-dialog__actions mdl-dialog__actions--full-width" style="display:inline;">
+                      <button type="button" class="mdl-button close" style="padding-right: 10px; float:left;"><a>Close</a></button>
+                      <button type="button" class="mdl-button" tabindex="-1" style="float:right;"><a target="_blank" href="https://www.google.com/forms/about/">Register</a></button>
+                    </div>
+                    <script>
+                      var fpDialog = document.querySelector("#fpdialog");
+                      var fpShowModalButton = document.querySelector("#fpbutt");
+                      if (! fpDialog.showModal) {
+                        dialogPolyfill.registerDialog(fpDialog);
+                      }
+                      techShowModalButton.addEventListener('click', function() {
+                        fpDialog.showModal();
+                      });
+                      fpDialog.querySelector('.close').addEventListener('click', function() {
+                        fpDialog.close();
+                      });
+                    </script>
+                  </dialog>
+
+                </div>
+              </div>
+
+              <br><br><br>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- <footer class="android-footer mdl-mega-footer">
+          <div class="mdl-mega-footer--top-section">
+            <div class="mdl-mega-footer--left-section">
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+            </div>
+            <div class="mdl-mega-footer--right-section">
+              <a class="mdl-typography--font-light" href="#top">
+                Back to Top
+                <i class="material-icons">expand_less</i>
+              </a>
+            </div>
+          </div> -->
+
+          <!-- <div class="mdl-mega-footer--bottom-section">
+            <a class="android-link android-link-menu mdl-typography--font-light" id="version-dropdown">
+              Versions
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="version-dropdown">
+              <li class="mdl-menu__item">5.0 Lollipop</li>
+              <li class="mdl-menu__item">4.4 KitKat</li>
+              <li class="mdl-menu__item">4.3 Jelly Bean</li>
+              <li class="mdl-menu__item">Android History</li>
+            </ul>
+          </div> -->
+
+        </footer>
+      </div>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script>
+      // var dialog = document.querySelector(select);
+      // var showModalButton = document.querySelector(butt);
+      // if (! dialog.showModal) {
+      //   dialogPolyfill.registerDialog(dialog);
+      // }
+      // showModalButton.addEventListener('click', function() {
+      //   dialog.showModal();
+      // });
+      // dialog.querySelector('.close').addEventListener('click', function() {
+      //   dialog.close();
+      // });
+    </script>
+  </body>
+</html>
